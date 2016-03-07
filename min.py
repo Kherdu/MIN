@@ -10,21 +10,23 @@ __author__ = 'p45'
 #ran.sample(xrange(1, 10), 1)  # category
 #ran.sample(xrange(70, 85), 1)  # percentage of the major category
 
+num_categories = 10  # nº of categories
 
 def set_categories():
 
-    category_List = [0]*10
+    category_List = [0]*num_categories
     categoryNum = int(ran.sample(xrange(0, 9), 1).pop())
 
     # user boughs from 100 to 150 items in several categories
-    numItems = int(ran.sample(xrange(100, 150), 1).pop())
+    #numItems = int(ran.sample(xrange(100, 150), 1).pop())
+    numItems = 30
     # calculate the number of
     positive_percentage = int(ran.sample(xrange(70, 85), 1).pop())  # % of positives 1's, from 70-85 %
     #positives = int(float(positive_percentage[0]/100.0) * categories_size ) # total 1's in a given range, each cat 100 items
     positives = positive_percentage * numItems / 100
     category_List[categoryNum] = positives
-    print "numItems (positive items): {0}".format(numItems)
-    print "positives in max category: {0}".format(positives)
+    #print "numItems (positive items): {0}".format(numItems)
+    #print "positives in max category: {0}".format(positives)
     remain_items = numItems - positives
     #print(remain_items)
 
@@ -58,11 +60,42 @@ def random_list(positives, category_size):
     '''
     return products
 
+
+def cat_bought(user):
+    categories_bougth= [0]*num_categories
+    a = 0
+    for cat in user:
+        if cat.count(1) >= 1:
+            categories_bougth[a] = 1
+        a += 1
+    return categories_bougth
+
+
+def compare(userA, userB):
+
+    catA = cat_bought(userA)
+    catB = cat_bought(userB)
+    jackardIndexes = [0.0]*num_categories
+    for i in range(0,num_categories-1):
+        if catA[i] == catB[i] and catA[i]==1:
+            union = 0.0
+            intersection = 0.0
+            for j in range(0, category_size):
+                union += userA[i][j]
+                union += userB[i][j]
+                if userA[i][j] == userB[i][j] and userA[i][j]==1:
+                    union -= 1
+                    intersection += 1
+            jackardIndexes[i] = intersection/union
+
+    return jackardIndexes
+
+
 # the 85% of 150 items max => 128 , the number of users x10 the number of items
-category_size = 128
-number_users = 12800
-user_list = set_categories()  # size of category
-#print user_list
+category_size = 30  # 128
+number_users = 5   # 12800
+# user_list = set_categories()  # size of category
+# print user_list
 
 # dictionary user_items key : user_name, dictionary user_items values : item_list
 user_items = {}
@@ -70,13 +103,22 @@ user_name = 'userName'
 
 for i in range(number_users):
     item_list = []
+    user_list = set_categories()
     for category_positive in user_list:
         item_list.append(random_list(category_positive, category_size))
     # add user - categories to the dictionary
     user_items[user_name+str(i)] = item_list
 
-for i in range(number_users):
-    print user_items[user_name+str(i)]
+#for i in range(number_users):
+   # print user_items[user_name+str(i)]
+
+
+user=user_items['userName0']
+user2=user_items['userName1']
+compare(user, user2)
+# falta por recorrer los usuarios, pasarselos a la función compare,
+#  y de lo que se obtiene escribir si tienen mas de 60% de coincidencia en una categoria
+
 """
 total = 0
 for k in item_list:
@@ -85,4 +127,3 @@ for k in item_list:
 
 print "total positives {0}: ".format(total)
 """
-
