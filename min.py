@@ -113,12 +113,22 @@ for i in range(number_users):
    # print user_items[user_name+str(i)]
 
 
-user=user_items['userName0']
-user2=user_items['userName1']
-compare(user, user2)
-# falta por recorrer los usuarios, pasarselos a la función compare,
-#  y de lo que se obtiene escribir si tienen mas de 60% de coincidencia en una categoria
+#user=user_items['userName0']
+#user2=user_items['userName1']
+#compare(user, user2)
 
+for i in range(number_users):
+    for j in range(number_users):
+        j += 1 ##para comparar el 0 con el 1, 1 con 2... etc
+        if j < number_users and i != j:
+            userA = user_items[user_name+str(i)]
+            userB = user_items[user_name+str(j)]
+            coincidenceRate = compare(userA, userB)
+            for c in coincidenceRate:
+                if c > 0.6:
+                    print('el usuario ' + user_name+str(i) + ' y el ' + user_name+str(j) + ' son recomendables entre si ' + str(c))
+
+# pilla los que son el mismo... why?
 """
 total = 0
 for k in item_list:
