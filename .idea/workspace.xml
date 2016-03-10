@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="133c3c84-e61f-4308-a9dd-63db4deb8c72" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/min.py" afterPath="$PROJECT_DIR$/min.py" />
     </list>
     <ignored path="MIN.iws" />
@@ -26,9 +27,14 @@
       <file leaf-file-name="min.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/min.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72386587">
-              <caret line="134" column="23" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="23" />
-              <folding />
+            <state vertical-scroll-proportion="-1.0552016">
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+              <folding>
+                <element signature="e#362#1594#0" expanded="false" />
+                <element signature="e#1644#2221#0" expanded="false" />
+                <element signature="e#2250#2565#0" expanded="false" />
+                <element signature="e#2599#3402#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +82,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -102,10 +107,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_cf76fc1621ac41ad4fe86c420ab5ff403f1808b9/cmd/git.exe" />
   </component>
@@ -312,7 +318,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -321,7 +327,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#362#1594#0" expanded="false" />
+            <element signature="e#1644#2221#0" expanded="false" />
+            <element signature="e#2250#2565#0" expanded="false" />
+            <element signature="e#2599#3402#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -329,7 +340,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#362#1594#0" expanded="false" />
+            <element signature="e#1644#2221#0" expanded="false" />
+            <element signature="e#2250#2565#0" expanded="false" />
+            <element signature="e#2599#3402#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -337,7 +353,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#362#1594#0" expanded="false" />
+            <element signature="e#1644#2221#0" expanded="false" />
+            <element signature="e#2250#2565#0" expanded="false" />
+            <element signature="e#2599#3402#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -345,17 +366,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#362#1594#0" expanded="false" />
+            <element signature="e#1644#2221#0" expanded="false" />
+            <element signature="e#2250#2565#0" expanded="false" />
+            <element signature="e#2599#3402#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6351085">
+          <caret line="322" column="0" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/min.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72386587">
-          <caret line="134" column="23" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="23" />
-          <folding />
+        <state vertical-scroll-proportion="-1.0552016">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding>
+            <element signature="e#362#1594#0" expanded="false" />
+            <element signature="e#1644#2221#0" expanded="false" />
+            <element signature="e#2250#2565#0" expanded="false" />
+            <element signature="e#2599#3402#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
