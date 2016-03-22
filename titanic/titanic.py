@@ -61,7 +61,7 @@ def analyze_data():
 
         if i[4] == 'male':
             total_male += 1.0
-        elif [4] == 'female':
+        else:
             total_female += 1.0
 
 
@@ -85,7 +85,7 @@ def analyze_data():
 
             if i[4] == 'male':
                 male += 1.0
-            elif [4] == 'female':
+            else:
                 female += 1.0
 
 
@@ -115,7 +115,7 @@ def analyze_data():
     print "Percentage second class: " + str(clas2/total_sec)
     print "Percentage third class: " + str(clas3/total_terc)
     print "Percentage male survivors: " + str(male/total_male)
-    print "Percentage female survivors: " + str((1-male/total_male))
+    print "Percentage female survivors: " + str((female/total_female))
     print "Percentage younger than 18: " + str(young/total_young)
     print "Percentage between 18 and 35: " + str(avg/total_avg)
     print "Percentage older than 35: " + str(old/total_old)
