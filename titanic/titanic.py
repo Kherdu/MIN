@@ -1,131 +1,174 @@
-# coding=utf-8
-import random as ran
-import csv
-__authors__ = 'rnov, kherdu, redrurm'
+__author__ = 'rnov, kherdu, redrurm'
 
+import pandas as pd
+import numpy as np
+import csv as csv
+from sklearn.ensemble import RandomForestClassifier
 
-myList=[]
-keys=[]
+# Data cleanup
+# TRAIN DATA
+train_df = pd.read_csv('train.csv', header=0)        # Load the train file into a dataframe
 
-def load_csv():
-    with open('train.csv', mode='r') as infile:
-        reader = csv.reader(infile)
+# I need to convert all strings to integer classifiers.
+# I need to fill in the missing values of the data and make it complete.
+# ------------------------------------------------------------------------
 
-        #reader.next() skips the first line in the .csv that contains the name of each row
-        reader.next()
-        for i in reader:
-            myList.append(i)
-
-    #keys= myList[0]
-    #print myList
-
-    return myList
+# str to int -> female = 0, Male = 1
+train_df['Gender'] = train_df['Sex'].map({'female': 0, 'male': 1}).astype(int)
+train_df['Gender2'] = np.int32(train_df['Sex'].map({'female': 0, 'male': 1}).astype(int) + (train_df.Pclass*2))
+train_df['family'] = np.int32(train_df.Age - train_df['Parch'])
 
 
 
-def analyze_data():
-    load_csv()
-    myDict = dict()
-    female = 0.0
-    male = 0.0
-    total_male = 0.0
-    total_female = 0.0
-    clas1 = 0.0
-    clas2 = 0.0
-    clas3 = 0.0
-    avg_age = 0.0
-    total = 0.0
-    young = 0.0
-    avg = 0.0
-    old = 0.0
-    total_young = 0.0
-    total_avg = 0.0
-    total_old = 0.0
-    deads = 0.0
-    total_prim = 0.0
-    total_terc = 0.0
-    total_sec = 0.0
+#train_df['Age*Class'] = np.int32(train_df.Age * train_df.Pclass)
+#train_df['rich'] = np.int32(train_df['Fare'] / train_df.Pclass)
+#train_df['woman_luck'] = np.int32(train_df['Gender']*3 + train_df.Pclass)
 
-    for i in myList:
-        print i[4]
-        #for j in i:
-        deads += 1
+#print train_df['fare']
 
-
-        if i[2] == '1':
-            total_prim += 1.0
-        elif i[2] == '2':
-            total_sec += 1.0
-        elif i[2] == '3':
-            total_terc += 1.0
-
-        if i[4] == 'male':
-            total_male += 1.0
-        else:
-            total_female += 1.0
-
-
-        if i[5] is not '':
-            if float(i[5]) < 18:
-                total_young += 1.0
-            elif 18 <= float(i[5]) < 35:
-                total_avg += 1.0
-            elif float(i[5]) >= 35:
-                total_old += 1.0
-
-
-        if i[1] == '1':
-            total += 1.0
-            if i[2] == '1':
-                clas1 += 1.0
-            elif i[2] == '2':
-                clas2 += 1.0
-            elif i[2] == '3':
-                clas3 += 1.0
-
-            if i[4] == 'male':
-                male += 1.0
-            else:
-                female += 1.0
-
-
-            if i[5] is not '':
-                if float(i[5]) < 18:
-                    young += 1.0
-                elif 18 <= float(i[5]) < 35:
-                    avg += 1.0
-                elif float(i[5]) >= 35:
-                    old += 1.0
-
-                print i[5]
-                avg_age = (float(i[5]) + avg_age) / 2
-
-    print "Total survivors: " + str(total)
-    print "Total male survivors: " + str(male)
-    print "Total female survivors: " + str(total - male)
-    print "Total class 1 survivors: " + str(clas1)
-    print "Total class 2 survivors: " + str(clas2)
-    print "Total class 3 survivors: " + str(clas3)
-    print "Average age survivors: " + str(avg_age)
-    print "Yoing survivors: " + str(young)
-    print "Average survivors: " + str(avg)
-    print "Old survivors: " + str(old)
-    print "Deads: " + str(deads)
-    print "Percentage first class: " + str(clas1/total_prim)
-    print "Percentage second class: " + str(clas2/total_sec)
-    print "Percentage third class: " + str(clas3/total_terc)
-    print "Percentage male survivors: " + str(male/total_male)
-    print "Percentage female survivors: " + str((female/total_female))
-    print "Percentage younger than 18: " + str(young/total_young)
-    print "Percentage between 18 and 35: " + str(avg/total_avg)
-    print "Percentage older than 35: " + str(old/total_old)
+# Not relevant the embarked port, no need to fill the missing though
+# Embarked from 'C', 'Q', 'S'
+# Note this is not ideal: in translating categories to numbers, Port "2" is not 2 times greater than Port "1", etc.
 
 
 
 
-    return 0
 
 
 
 
-analyze_data()
+Names = list(enumerate(np.unique(train_df['Name'])))
+Names2 = []
+
+for i in Names:
+    if "Master." in i[1]:
+        i[1] = 0
+        #Names2.append(0)
+    elif "Rev." in i[1]:
+        i[1] = 1
+    elif "Mr." in i[1]:
+        i[1] = 2
+    elif "Mrs.." in i[1]:
+        i[1] = 3
+    elif "Miss." in i[1]:
+        i[1] = 4
+print Names2
+#Names_dict = {name2: i for i, name2 in Names2}
+
+
+train_df['Name'] = train_df['Name'].map(lambda y: Names2[y]).astype(int)
+
+
+
+
+
+# All missing Embarked -> just make them embark from most common place
+if len(train_df.Embarked[train_df.Embarked.isnull()]) > 0:
+    train_df.Embarked[train_df.Embarked.isnull()] = train_df.Embarked.dropna().mode().values
+
+Ports = list(enumerate(np.unique(train_df['Embarked'])))    # determine all values of Embarked,
+Ports_dict = {name: i for i, name in Ports}              # set up a dictionary in the form  Ports : index
+train_df.Embarked = train_df.Embarked.map(lambda x: Ports_dict[x]).astype(int)     # Convert all Embark strings to int
+
+
+
+
+# All the ages with no data -> make the median of all Ages, la edad media para hombres y para mujeres
+median_age = train_df['Age'].dropna().median()
+if len(train_df.Age[train_df.Age.isnull()]) > 0:
+    train_df.loc[(train_df.Age.isnull()), 'Age'] = median_age
+
+# Remove the Name column, Cabin, Ticket, Embarked, Fare,and Sex (since I copied and filled it to Gender)
+train_df = train_df.drop(['Sex', 'Ticket', 'Cabin', 'PassengerId'], axis=1)
+print train_df.dtypes
+
+# TEST DATA
+test_df = pd.read_csv('test.csv', header=0)        # Load the test file into a dataframe
+
+# I need to do the same with the test data now, so that the columns are the same as the training data
+# I need to convert all strings to integer classifiers:
+# female = 0, Male = 1
+#test_df['Gender'] = test_df['Sex'].map({'female': 0, 'male': 1}).astype(int)
+test_df['Gender'] = test_df['Sex'].map({'female': 0, 'male': 1}).astype(int)
+test_df['Gender2'] = np.int32(test_df['Sex'].map({'female': 0, 'male': 1}).astype(int) + (test_df.Pclass*2))
+
+#test_df['family'] = test_df['Parch'] + test_df['SibSp'] - test_df['Gender']
+test_df['family'] = np.int32(test_df.Age - test_df['Parch'])
+
+
+#test_df['Age*Pclass'] = np.int32(test_df.Age * test_df.Pclass)
+#test_df['woman_luck'] = np.int32(test_df['Gender']*3 + test_df.Pclass)
+#print test_df.Pclass
+#print test_df['age']
+
+# Embarked from 'C', 'Q', 'S'
+# All missing Embarked -> just make them embark from most common place
+if len(test_df.Embarked[test_df.Embarked.isnull() ]) > 0:
+    test_df.Embarked[test_df.Embarked.isnull() ] = test_df.Embarked.dropna().mode().values
+# Again convert all Embarked strings to int
+test_df.Embarked = test_df.Embarked.map( lambda x: Ports_dict[x]).astype(int)
+
+
+
+Names = list(enumerate(np.unique(test_df['Name'])))
+Names2 = []
+
+for i in Names:
+    if "Master." in i:
+        Names2.append(0)
+    elif "Rev." in i:
+        Names2.append(1)
+    elif "Mr." in i:
+        Names2.append(2)
+    elif "Mrs.." in i:
+        Names2.append(3)
+    elif "Miss." in i:
+        Names2.append(4)
+
+Names_dict = {name2: i for i, name2 in Names2}
+#test_df.Name = test_df.Name.map(lambda x: Names_dict[x]).astype(int)
+test_df['Name'] = test_df['Name'].map(lambda y: Names_dict[y]).astype(int)
+
+
+
+# All the ages with no data -> make the median of all Ages, la edad media para hombres y para mujeres
+median_age = test_df['Age'].dropna().median()
+if len(test_df.Age[test_df.Age.isnull()]) > 0:
+    test_df.loc[(test_df.Age.isnull()), 'Age'] = median_age
+
+
+# All the missing Fares -> assume median of their respective class
+if len(test_df.Fare[test_df.Fare.isnull()]) > 0:
+    median_fare = np.zeros(3)
+    for f in range(0, 3):                                              # loop 0 to 2
+        median_fare[f] = test_df[test_df.Pclass == f+1]['Fare'].dropna().median()
+    for f in range(0, 3):                                              # loop 0 to 2
+        test_df.loc[(test_df.Fare.isnull()) & (test_df.Pclass == f+1), 'Fare'] = median_fare[f]
+
+
+# Collect the test data's PassengerIds before dropping it
+ids = test_df['PassengerId'].values
+# Remove the Name column, Cabin, Ticket, Embarked, Fare,and Sex (since I copied and filled it to Gender)
+test_df = test_df.drop(['Sex', 'Ticket', 'Cabin', 'PassengerId'], axis=1)
+print test_df.dtypes
+
+# The data is now ready to go. So lets fit to the train, then predict to the test!
+# Convert back to a numpy array
+train_data = train_df.values
+test_data = test_df.values
+
+
+print 'Training...'
+forest = RandomForestClassifier(n_estimators=100)
+forest = forest.fit(train_data[0::, 1::], train_data[0::, 0])
+
+print 'Predicting...'
+output = forest.predict(test_data).astype(int)
+
+
+predictions_file = open("titanic.csv", "wb")
+open_file_object = csv.writer(predictions_file)
+open_file_object.writerow(["PassengerId", "Survived"])
+open_file_object.writerows(zip(ids, output))
+predictions_file.close()
+print 'Done.'
