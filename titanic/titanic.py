@@ -159,8 +159,8 @@ test_data = test_df.values
 
 
 print 'Training...'
-forest = RandomForestClassifier(n_estimators=100)
-forest = forest.fit(train_data[0::, 1::], train_data[0::, 0])
+forest = RandomForestClassifier()
+forest.fit(train_data[0::, 1::], train_data[0::, 0])
 
 print 'Predicting...'
 output = forest.predict(test_data).astype(int)
