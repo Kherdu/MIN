@@ -28,10 +28,13 @@ def workClassDataMap(data):
         'Federal-gov': 3,
         'Local-gov': 0,
         'Self-emp-inc': 1,
-        'Without-pay': 4,
+        'Without-pay': 4, 
         'Never-worked': 4,
-        'None': 2 #none lo pasamos a la misma clase que privado porque sabemos que hay un 68% de trabajadores del sector privado, asique es el mas probable.
-    }).astype(int)
+	'None': 2
+
+	
+	
+}).astype(int)
 
     return data
 
@@ -42,71 +45,77 @@ def sexDataMap(data):
 def occupationDataMap(data):
 
     data['occupation'] = data['occupation'].map({
-
+	# 0 -> 
+	# 
         'Exec-managerial': 0,
         'Prof-specialty': 0,
         'Tech-support': 3,
         'Adm-clerical': 3,
-        'Craft-repair': 1,
-        'Farming-fishing': 4,
-        'Handlers-cleaners': 2,
-        'Machine-op-inspct': 1,
-        'Other-service': 4,
-        'Priv-house-serv': 2,
-        'Protective-serv': 4,
-        'Sales': 1,
+        'Craft-repair': 3,
+        'Farming-fishing': 3,
+        'Handlers-cleaners': 3,
+        'Machine-op-inspct':3,
+        'Other-service': 3,
+        'Priv-house-serv': 3,
+        'Protective-serv': 3,
+        'Sales': 3,
         'Transport-moving': 3,
-        'Armed-Forces': 2,
-        'None': 4
+        'Armed-Forces':3,
+        'None': 3
     }).astype(int)
     return data
 
 def nativeCountryDataMap(data):
-    data['native-country'] = data['native-country'].map({
-        'Cambodia':0,
-        'Canada':2,
-        'China':1,
-        'Columbia':3,
-        'Cuba':4,
-        'Dominican-Republic':5,
-        'Ecuador':3,
-        'El-Salvador':3,
-        'England':2,
-        'France':6,
-        'Germany':6,
-        'Greece':7,
-        'Guatemala':5,
-        'Haiti':5,
-        'Holand-Netherlands':6,
-        'Honduras':5,
-        'Hong':1,
-        'Hungary':7,
-        'India':2,
-        'Iran':4,
-        'Ireland':2,
-        'Italy':6,
-        'Jamaica':5,
-        'Japan':4,
-        'Laos':0,
-        'Mexico':5,
-        'Nicaragua':5,
-        'Outlying-US(Guam-USVI-etc)':5,
-        'Peru':3,
-        'Philippines':0,
-        'Poland':7,
-        'Portugal':7,
-        'Puerto-Rico':5,
-        'Scotland':2,
-        'South':7,
-        'Taiwan':1,
-        'Thailand':0,
-        'Trinadad&Tobago':5,
-        'United-States':8,
-        'Vietnam':0,
-        'Yugoslavia':7,
-        'None': 8 #lo pasamos a USA porque el 90% son usa
-    }).astype(int)
-    return data
+	# europe -> 3
+	# north-America -> 4
+	# afrika -> 0
+	# south-america -> 0
+	# asia -> 0
+	data['native-country'] = data['native-country'].map({
+		'Cambodia':0,
+		'Canada':4,
+		'China':0,
+		'Columbia':0,
+		'Cuba':0,
+		'Dominican-Republic':0,
+		'Ecuador':0,
+		'El-Salvador':0,
+		'England':3,
+		'France':3,
+		'Germany':3,
+		'Greece':2,
+		'Guatemala':0,
+		'Haiti':0,
+		'Holand-Netherlands':3,
+		'Honduras':0,
+		'Hong':3,
+		'Hungary':2,
+		'India':0,
+		'Iran':0,
+		'Ireland':2,
+		'Italy':2,
+		'Jamaica':0,
+		'Japan':3,
+		'Laos':0,
+		'Mexico':0,
+		'Nicaragua':0,
+		'Outlying-US(Guam-USVI-etc)':0,
+		'Peru':0,
+		'Philippines':0,
+		'Poland':2,
+		'Portugal':2,
+		'Puerto-Rico':1,
+		'Scotland':2,
+		'South':0,
+		'Taiwan':0,
+		'Thailand':0,
+		'Trinadad&Tobago':0,
+		'United-States':4,
+		'Vietnam':0,
+		'Yugoslavia':2,
+		'None': 4 #lo pasamos a USA porque el 90% son usa
+	}).astype(int)
+	return data  
 
 def educationDataMap(data):
     data['education'] = data['education'].map({
@@ -117,15 +126,17 @@ def educationDataMap(data):
         '5th-6th':0,
         '7th-8th':0,
         '9th':0,
+	'Preschool':0,
+	'HS-grad':4,
+	'Bachelors':2,
+	'Prof-school':1,
         'Assoc-acdm':3,
         'Assoc-voc':3,
-        'Bachelors':2,
+        'Some-college':4,
         'Doctorate':5,
-        'HS-grad':4,
-        'Masters':6,
-        'Preschool':0,
-        'Prof-school':1,
-        'Some-college':4
+        'Masters':6
+         
+        
     }).astype(int)
     return data
 
@@ -133,10 +144,10 @@ def raceDataMap(data):
 
     data['race'] = data['race'].map({
         'White': 1,
-        'Black': 2,
-        'Amer-Indian-Eskimo': 3,
-        'Asian-Pac-Islander': 4,
-        'Other': 0
+        'Black': 4,
+        'Amer-Indian-Eskimo': 2,
+        'Asian-Pac-Islander': 2,
+        'Other': 1
     }).astype(int)
     return data
 
@@ -144,12 +155,12 @@ def maritalStatusDataMap(data):
 
     data['marital-status'] = data['marital-status'].map({
         'Never-married': 1,
-        'Married-civ-spouse': 2,
-        'Divorced': 3,
-        'Married-spouse-absent': 3,
-        'Separated': 3,
-        'Married-AF-spouse': 2,
-        'Widowed': 4
+        'Married-civ-spouse': 4,
+        'Divorced': 4,
+        'Married-spouse-absent': 4,
+        'Separated': 4,
+        'Married-AF-spouse': 4,
+        'Widowed': 1
     }).astype(int)
     return data
 
@@ -162,6 +173,7 @@ def marital_statMap(data):
     else:
         data['mar-stat'] = 0
     return data
+
 
 
 #training data preparation
@@ -192,6 +204,10 @@ test_df = raceDataMap(test_df)
 test_df = maritalStatusDataMap(test_df)
 #test_df = marital_statMap(test_df)
 test_df = test_df.drop(['education-num', 'fnlwgt', 'relationship', 'Unnamed: 0'], axis = 1)
+
+#train_df['prueba'] = train_df['capital-gain'] - train_df['capital-loss']
+#test_df['prueba'] = test_df['capital-gain'] - test_df['capital-loss']
+
 
 # The data is now ready to go. So lets fit to the train, then predict to the test!
 # Convert back to a numpy array
