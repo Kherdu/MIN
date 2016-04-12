@@ -5,6 +5,8 @@ import numpy as np
 import csv as csv
 import time
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import cross_validation
+from sklearn.linear_model import LogisticRegression
 t0 = time.clock()
 
 train_df = pd.read_csv('data.csv', header=0)
@@ -197,18 +199,23 @@ train_data = train_df.values
 test_data = test_df.values
 
 print 'Training...'
-forest = RandomForestClassifier(n_estimators=100, n_jobs=2) #4 hilos
+forest = RandomForestClassifier(n_estimators=100, n_jobs=2) #2 hilos
 
 forest.fit(train_data[0:, :11], train_data[0:, 11])
 
 print 'Predicting...'
 output = forest.predict(test_data).astype(int)
-
-
 predictions_file = open("RafaelCaturla.csv", "wb")
 open_file_object = csv.writer(predictions_file)
 open_file_object.writerows(zip(output))
 predictions_file.close()
+
+
+#comprobacion con data
+alg= LogisticRegression(random_state=1)
+scores= cross_validation.cross_val_score(alg, train_data[0:, :11], train_df['income'], cv=3)
+print scores.mean()
+
 
 print 'Done.'
 

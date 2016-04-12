@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="133c3c84-e61f-4308-a9dd-63db4deb8c72" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AdultDataSet/ShoddyCoders.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdultDataSet/RafaelCaturla.csv" afterPath="$PROJECT_DIR$/AdultDataSet/RafaelCaturla.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AdultDataSet/adultDataSet.py" afterPath="$PROJECT_DIR$/AdultDataSet/adultDataSet.py" />
     </list>
     <ignored path="MIN.iws" />
@@ -28,10 +28,18 @@
       <file leaf-file-name="adultDataSet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdultDataSet/adultDataSet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35394126">
-              <caret line="199" column="58" selection-start-line="199" selection-start-column="58" selection-end-line="199" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.5579598">
+              <caret line="215" column="91" selection-start-line="215" selection-start-column="91" selection-end-line="215" selection-end-column="91" />
               <folding>
                 <element signature="e#38#57#0" expanded="true" />
+                <element signature="e#816#1259#0" expanded="false" />
+                <element signature="e#1287#1368#0" expanded="false" />
+                <element signature="e#1404#1903#0" expanded="false" />
+                <element signature="e#1941#2995#0" expanded="false" />
+                <element signature="e#3029#3449#0" expanded="false" />
+                <element signature="e#3479#3672#0" expanded="false" />
+                <element signature="e#3711#3996#0" expanded="false" />
+                <element signature="e#4030#4456#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,7 +48,7 @@
       <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdultDataSet/data.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11154.647">
+            <state vertical-scroll-proportion="0.0">
               <caret line="17239" column="0" selection-start-line="17239" selection-start-column="0" selection-end-line="17239" selection-end-column="0" />
               <folding />
             </state>
@@ -61,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/AdultDataSet/RafaelCaturla.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -125,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,7 +190,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -421,7 +429,6 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08385417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2568306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -435,6 +442,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -463,7 +471,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="36" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -496,7 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2410" column="0" selection-start-line="2410" selection-start-column="0" selection-end-line="2410" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,7 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26429674">
           <caret line="194" column="47" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,14 +829,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5811437">
           <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AdultDataSet/RafaelCaturla.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -847,7 +850,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdultDataSet/data.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11154.647">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17239" column="0" selection-start-line="17239" selection-start-column="0" selection-end-line="17239" selection-end-column="0" />
           <folding />
         </state>
@@ -855,10 +858,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AdultDataSet/adultDataSet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35394126">
-          <caret line="199" column="58" selection-start-line="199" selection-start-column="58" selection-end-line="199" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.5579598">
+          <caret line="215" column="91" selection-start-line="215" selection-start-column="91" selection-end-line="215" selection-end-column="91" />
           <folding>
             <element signature="e#38#57#0" expanded="true" />
+            <element signature="e#816#1259#0" expanded="false" />
+            <element signature="e#1287#1368#0" expanded="false" />
+            <element signature="e#1404#1903#0" expanded="false" />
+            <element signature="e#1941#2995#0" expanded="false" />
+            <element signature="e#3029#3449#0" expanded="false" />
+            <element signature="e#3479#3672#0" expanded="false" />
+            <element signature="e#3711#3996#0" expanded="false" />
+            <element signature="e#4030#4456#0" expanded="false" />
           </folding>
         </state>
       </provider>
