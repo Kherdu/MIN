@@ -33,7 +33,6 @@ def workClassDataMap(data):
 	'None': 2
 
 
-
 }).astype(int)
 
     return data
@@ -45,8 +44,6 @@ def sexDataMap(data):
 def occupationDataMap(data):
 
     data['occupation'] = data['occupation'].map({
-	# 0 ->
-	#
         'Exec-managerial': 0,
         'Prof-specialty': 0,
         'Tech-support': 3,
@@ -115,8 +112,8 @@ def nativeCountryDataMap(data):
 		'Yugoslavia':2,
 		'None': 4 #lo pasamos a USA porque el 90% son usa
 	}).astype(int)
-	return data
 
+	return data
 def educationDataMap(data):
     data['education'] = data['education'].map({
         '10th':0,
@@ -126,17 +123,15 @@ def educationDataMap(data):
         '5th-6th':0,
         '7th-8th':0,
         '9th':0,
-	'Preschool':0,
-	'HS-grad':4,
-	'Bachelors':2,
-	'Prof-school':1,
+        'Preschool':0,
+    	'HS-grad':4,
+	    'Bachelors':2,
+    	'Prof-school':1,
         'Assoc-acdm':3,
         'Assoc-voc':3,
         'Some-college':4,
         'Doctorate':5,
         'Masters':6
-
-
     }).astype(int)
     return data
 
