@@ -11,13 +11,6 @@ t0 = time.clock()
 
 train_df = pd.read_csv('data.csv', header=0)
 
-# data = read.table("http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data",
-#         sep=",",header=F,col.names=c("age", "type_employer", "fnlwgt", "education",
-#                 "education_num","marital", "occupation", "relationship", "race","sex",
-#                 "capital_gain", "capital_loss", "hr_per_week","country", "income"),
-#         fill=FALSE,strip.white=T)
-
-
 #First we take off education num and fnlwgt (no one knows what fnlwgt is)
 
 def workClassDataMap(data):
@@ -45,8 +38,6 @@ def sexDataMap(data):
 def occupationDataMap(data):
 
     data['occupation'] = data['occupation'].map({
-	# 0 ->
-	#
         'Exec-managerial': 0,
         'Prof-specialty': 0,
         'Tech-support': 3,
@@ -60,84 +51,91 @@ def occupationDataMap(data):
         'Protective-serv': 3,
         'Sales': 3,
         'Transport-moving': 3,
-        'Armed-Forces':3,
+        'Armed-Forces': 3,
         'None': 3
     }).astype(int)
     return data
 
 def nativeCountryDataMap(data):
-	# europe -> 3
+	# europe -> 3 west , east 2
 	# north-America -> 4
 	# afrika -> 0
 	# south-america -> 0
 	# asia -> 0
 	data['native-country'] = data['native-country'].map({
-		'Cambodia':0,
-		'Canada':4,
-		'China':0,
-		'Columbia':0,
-		'Cuba':0,
-		'Dominican-Republic':0,
-		'Ecuador':0,
-		'El-Salvador':0,
-		'England':3,
-		'France':3,
-		'Germany':3,
-		'Greece':2,
-		'Guatemala':0,
-		'Haiti':0,
-		'Holand-Netherlands':3,
-		'Honduras':0,
-		'Hong':3,
-		'Hungary':2,
-		'India':0,
-		'Iran':0,
-		'Ireland':2,
-		'Italy':2,
-		'Jamaica':0,
-		'Japan':3,
-		'Laos':0,
-		'Mexico':0,
-		'Nicaragua':0,
-		'Outlying-US(Guam-USVI-etc)':0,
-		'Peru':0,
-		'Philippines':0,
-		'Poland':2,
-		'Portugal':2,
-		'Puerto-Rico':1,
-		'Scotland':2,
-		'South':0,
-		'Taiwan':0,
-		'Thailand':0,
-		'Trinadad&Tobago':0,
-		'United-States':4,
-		'Vietnam':0,
-		'Yugoslavia':2,
-		'None': 4 #lo pasamos a USA porque el 90% son usa
+
+        'Canada':4,
+        'United-States':4,
+
+        'Yugoslavia':2,
+        'England':3,
+        'France':3,
+        'Germany':3,
+        'Greece':2,
+        'Hungary':2,
+        'Ireland':2,
+        'Italy':2,
+        'Portugal':2,
+        'Scotland':3,
+        'Poland':2,
+        'Holand-Netherlands':3,
+
+        'China':0,
+        'Cambodia':0,
+        'Japan':3,
+        'Vietnam':0,
+        'Laos':0,
+        'Taiwan':0,
+        'Thailand':0,
+        'Philippines':0,
+        'Hong':3,
+        'India':0,
+        'Iran':0,
+
+        'Guatemala':0,
+        'Haiti':0,
+        'Columbia':0,
+        'Cuba':0,
+        'Dominican-Republic':0,
+        'Ecuador':0,
+        'El-Salvador':0,
+        'Honduras':0,
+        'Jamaica':0,
+        'Mexico':0,
+        'Nicaragua':0,
+        'Outlying-US(Guam-USVI-etc)':0,
+        'Peru':0,
+        'Puerto-Rico':1,
+        'South':0,
+
+        'Trinadad&Tobago':0,
+
+        'None': 4 #lo pasamos a USA porque el 90% son usa
 	}).astype(int)
 	return data
 
 def educationDataMap(data):
+
     data['education'] = data['education'].map({
-        '10th':0,
-        '11th':0,
-        '12th':0,
-        '1st-4th':0,
-        '5th-6th':0,
-        '7th-8th':0,
-        '9th':0,
-	'Preschool':0,
-	'HS-grad':4,
-	'Bachelors':2,
-	'Prof-school':1,
-        'Assoc-acdm':3,
-        'Assoc-voc':3,
-        'Some-college':4,
-        'Doctorate':5,
-        'Masters':6
+            '10th':0,
+            '11th':0,
+            '12th':0,
+            '1st-4th':0,
+            '5th-6th':0,
+            '7th-8th':0,
+            '9th':0,
+            'Preschool':0,
+            'HS-grad':1,
 
+            'Prof-school':2,
+            'Assoc-acdm':2,
+            'Assoc-voc':2,
+            'Some-college':2,
 
-    }).astype(int)
+            'Bachelors':3,
+            'Masters':4,
+            'Doctorate':5
+        }).astype(int)
     return data
 
 def raceDataMap(data):
@@ -147,7 +145,7 @@ def raceDataMap(data):
         'Black': 4,
         'Amer-Indian-Eskimo': 2,
         'Asian-Pac-Islander': 2,
-        'Other': 1
+        'Other': 2
     }).astype(int)
     return data
 
@@ -155,12 +153,23 @@ def maritalStatusDataMap(data):
 
     data['marital-status'] = data['marital-status'].map({
         'Never-married': 1,
-        'Married-civ-spouse': 4,
-        'Divorced': 4,
-        'Married-spouse-absent': 4,
-        'Separated': 4,
-        'Married-AF-spouse': 4,
+        'Married-civ-spouse': 5,
+        'Divorced': 2,
+        'Married-spouse-absent': 2,
+        'Separated': 2,
+        'Married-AF-spouse': 2,
         'Widowed': 1
+    }).astype(int)
+    return data
+
+def relationshipMap(data):
+    data['relationship'] = data['relationship'].map({
+        'Wife': 4,
+        'Own-child': 2,
+        'Husband': 3,
+        'Not-in-family': 1,
+        'Other-relative': 1,
+        'Unmarried': 1,
     }).astype(int)
     return data
 
@@ -185,8 +194,11 @@ train_df = educationDataMap(train_df)
 train_df = raceDataMap(train_df)
 train_df = maritalStatusDataMap(train_df)
 #train_df = marital_statMap(train_df)
+
+train_df = relationshipMap(train_df)
+
 train_df['income'] = train_df['income'].map({'<=50K': 0, '>50K': 1}).astype(int)
-train_df = train_df.drop(['education-num', 'fnlwgt', 'relationship', 'Unnamed: 0'], axis=1)
+train_df = train_df.drop(['education-num', 'fnlwgt', 'Unnamed: 0'], axis=1)  # 'relationship',
 
 
 
@@ -203,7 +215,10 @@ test_df = educationDataMap(test_df)
 test_df = raceDataMap(test_df)
 test_df = maritalStatusDataMap(test_df)
 #test_df = marital_statMap(test_df)
-test_df = test_df.drop(['education-num', 'fnlwgt', 'relationship', 'Unnamed: 0'], axis = 1)
+
+test_df = relationshipMap(test_df)
+
+test_df = test_df.drop(['education-num', 'fnlwgt', 'Unnamed: 0'], axis = 1) #  'relationship',
 
 #train_df['prueba'] = train_df['capital-gain'] - train_df['capital-loss']
 #test_df['prueba'] = test_df['capital-gain'] - test_df['capital-loss']
@@ -217,7 +232,7 @@ test_data = test_df.values
 print 'Training...'
 forest = RandomForestClassifier(n_estimators=100, n_jobs=2) #2 hilos
 
-forest.fit(train_data[0:, :11], train_data[0:, 11])
+forest.fit(train_data[0:, :12], train_data[0:, 12])
 
 print 'Predicting...'
 output = forest.predict(test_data).astype(int)
@@ -229,7 +244,7 @@ predictions_file.close()
 
 #comprobacion con data
 alg= LogisticRegression(random_state=1)
-scores= cross_validation.cross_val_score(alg, train_data[0:, :11], train_df['income'], cv=3)
+scores= cross_validation.cross_val_score(alg, train_data[0:, :12], train_df['income'], cv=3)
 print scores.mean()
 
 
