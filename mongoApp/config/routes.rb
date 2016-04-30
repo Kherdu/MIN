@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :operacion
-  get 'operaciones/genera'
+  root 'operaciones#index'
+  get 'operaciones/new' to 'operaciones#new'
 
-  get 'operaciones/guarda'
+  get 'operaciones/answer' to 'operaciones#answer'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

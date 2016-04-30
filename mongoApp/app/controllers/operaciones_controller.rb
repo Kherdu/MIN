@@ -1,16 +1,18 @@
 class OperacionesController < ApplicationController
-  def genera
-    operando1 = Random.new
-    operando1.rand(1..99)
-    operando2 = Random.new
-    operando2.rand(1..99)
-    print operando1
-    print operando2
-    operador = [:*, :+, :-, :/].sample
+  def new
+    @operation = Operacion.new
+    op1 = Random.new
+    @Operation.operando1 = op1.rand(1..99)
+    op2 = Random.new
+    @Operation.operando2 = op2.rand(1..99)
+    @Operation.operador = [:*, :+, :-, :/].sample
+    @Operation.name = 'Rafa'
+    resultado = @Operation.operando1.send(@Operation.operador,@Operation.operando2)
 
+    redirect_to '/contesta'
   end
 
-  def guarda
+  def answer
 
 
   end
