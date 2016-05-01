@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operando1: 1
+  operando2: 1
+  operador: MyString
+  nombre: MyString
+
+two:
+  operando1: 1
+  operando2: 1
+  operador: MyString
+  nombre: MyString
