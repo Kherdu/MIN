@@ -1,1 +1,0 @@
-json.extract! @pelicula, :name, :description
