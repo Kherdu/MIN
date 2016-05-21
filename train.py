@@ -18,22 +18,21 @@ train_df['op'] = train_df['op'].map({'+': 0, '-': 0, '/': 1, '*': 2}).astype(int
 # 'nombre' is useless for learning
 train_df = train_df.drop(['nombre'], axis=1)
 train_df['complexity'] = 0
-print train_df
+
 for c in range(0, len(train_df)):
-    if train_df.op[c] == 2: #mul
-        if train_df.op1[c] >9 and train_df.op2[c]>9:
+    if train_df.op[c] == 2:  #mul
+        if train_df.op1[c] > 9 and train_df.op2[c] > 9:
             train_df['complexity'][c] = 3
         else:
             train_df['complexity'][c] = 2
-    elif train_df.op[c] == 1: #div
+    elif train_df.op[c] == 1:  #div
         if train_df.op1[c] > train_df.op2[c]:
             train_df['complexity'] = 1
 
-    elif train_df.op[c] == 0 and train_df.op1[c] > 9 and train_df.op2[c] > 9: #suma y resta
+    elif train_df.op[c] == 0 and train_df.op1[c] > 9 and train_df.op2[c] > 9:  #suma y resta
         train_df['complexity'][c] = 1
 # get the values
 train_data = train_df.values
-
 # print train_data[0::, :3:]  # from line 0 to end, gets all columns until 3th one
 # print train_data[0::, 3]  # from line 0 to end, gets just the 3th column
 train_data = np.roll(train_data, 2) #si se meten mas varibles aumentar este numero
