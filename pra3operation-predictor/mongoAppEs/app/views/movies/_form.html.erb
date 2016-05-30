@@ -1,0 +1,7 @@
+<%= simple_form_for @movie do |f| %>
+  <%= f.input :name %>
+  <%= f.association :gender %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :rank %>
+  <%= f.button :submit %>
+<% end %>

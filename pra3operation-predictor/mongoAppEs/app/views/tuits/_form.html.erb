@@ -1,0 +1,12 @@
+<%= simple_form_for(@tuit) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :text %>
+    <%= f.input :hashtag %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @tuit.text %>
+</p>
+
+<p>
+  <strong>Hashtag:</strong>
+  <%= @tuit.hashtag %>
+</p>
+
+<%= link_to 'Edit', edit_tuit_path(@tuit) %> |
+<%= link_to 'Back', tuits_path %>

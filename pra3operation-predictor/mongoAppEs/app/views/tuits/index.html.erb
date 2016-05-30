@@ -1,0 +1,27 @@
+<h1>Listing tuits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Hashtag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tuits.each do |tuit| %>
+      <tr>
+        <td><%= tuit.text %></td>
+        <td><%= tuit.hashtag %></td>
+        <td><%= link_to 'Show', tuit %></td>
+        <td><%= link_to 'Edit', edit_tuit_path(tuit) %></td>
+        <td><%= link_to 'Destroy', tuit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tuit', new_tuit_path %>
